@@ -16,12 +16,10 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-@Mod.EventBusSubscriber(modid = DWDCcore.MOD_ID)
 @SideOnly(Side.CLIENT)
 public class ScreenshotToClipboard {
 
     @SubscribeEvent
-
     public static void handleScreenshot(ScreenshotEvent event) {
         new Thread(() -> {
             Transferable trans = getTransferableImage(event.getImage());

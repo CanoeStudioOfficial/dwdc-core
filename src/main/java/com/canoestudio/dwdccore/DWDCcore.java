@@ -1,6 +1,7 @@
 package com.canoestudio.dwdccore;
 
 import com.canoestudio.dwdccore.proxy.CommonProxy;
+import com.example.modid.Tags;
 import net.minecraftforge.common.util.PacketUtil;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
