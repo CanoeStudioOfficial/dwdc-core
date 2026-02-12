@@ -1,9 +1,7 @@
 package com.canoestudio.dwdccore;
 
-import com.canoestudio.dwdccore.proxy.CommonProxy;
 import com.canoestudio.dwdccore.kleeslabs.KleeSlabs;
-
-import net.minecraftforge.common.util.PacketUtil;
+import com.canoestudio.dwdccore.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

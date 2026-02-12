@@ -1,8 +1,8 @@
 package com.canoestudio.dwdccore.kleeslabs;
 
-import com.google.gson.*;
 import com.canoestudio.dwdccore.DWDCcore;
 import com.canoestudio.dwdccore.kleeslabs.converter.SlabConverter;
+import com.google.gson.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -14,7 +14,10 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import org.apache.commons.io.FilenameUtils;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
@@ -91,7 +94,7 @@ public class JsonCompatLoader {
 
     private static void parse(JsonObject root) {
         String modId = JsonUtils.getString(root, "modid");
-        if (!modId.equals("minecraft") && !Loader.isModLoaded(modId) && KleeSlabs.config.getBoolean(modId, "compat", true, "")) {
+        if (!modId.equals("minecraft") && !Loader.isModLoaded(modId) && KleeSlabsConfig.compat.getOrDefault(modId, true)) {
             return;
         }
 

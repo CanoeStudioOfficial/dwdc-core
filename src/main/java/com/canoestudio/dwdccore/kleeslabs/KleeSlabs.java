@@ -1,7 +1,7 @@
 package com.canoestudio.dwdccore.kleeslabs;
 
-import com.google.common.collect.Maps;
 import com.canoestudio.dwdccore.kleeslabs.converter.SlabConverter;
+import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +21,6 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -40,15 +39,12 @@ import java.util.Random;
 
 public class KleeSlabs {
 
+    public static final String MOD_ID = "kleeslabs";
 
     public static final Logger logger = LogManager.getLogger();
     private static final Random rand = new Random();
 
-    public static Configuration config;
     public static File configDir;
-
-    private boolean requireSneak;
-    private boolean invertSneak;
 
     private static final Map<Block, SlabConverter> slabMap = Maps.newHashMap();
 
@@ -57,21 +53,11 @@ public class KleeSlabs {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        config = new Configuration(new File(event.getModConfigurationDirectory(), "kleeslabs.cfg"));
-        config.load();
-
-        requireSneak = config.getBoolean("Require Sneaking", "general", false, "Set this to true to only break half a slab when the player is sneaking.");
-        invertSneak = config.getBoolean("Invert Sneaking Check", "general", false, "If Require Sneaking is enabled. Set this to true to invert the sneaking check for breaking only half a slab.");
-
         // MinecraftForge.EVENT_BUS.register(new SlabDebugger());
     }
 
     public void postInit(FMLPostInitializationEvent event) {
         JsonCompatLoader.loadCompat();
-
-        if (config.hasChanged()) {
-            config.save();
-        }
     }
 
     public static void registerSlabConverter(Block doubleSlab, SlabConverter converter) {
@@ -81,7 +67,7 @@ public class KleeSlabs {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void onDrawBlockHighlight(DrawBlockHighlightEvent event) {
-        if (!requireSneak || event.getPlayer().isSneaking() != invertSneak) {
+        if (!KleeSlabsConfig.general.requireSneaking || event.getPlayer().isSneaking() != KleeSlabsConfig.general.invertSneakingCheck) {
             if (event.getTarget().typeOfHit != RayTraceResult.Type.BLOCK) {
                 return;
             }
@@ -126,7 +112,7 @@ public class KleeSlabs {
         if (hitVec != null) {
             hitVec = hitVec.add(-event.getPos().getX(), -event.getPos().getY(), -event.getPos().getZ());
         }
-        if (!requireSneak || event.getPlayer().isSneaking() != invertSneak) {
+        if (!KleeSlabsConfig.general.requireSneaking || event.getPlayer().isSneaking() != KleeSlabsConfig.general.invertSneakingCheck) {
             IBlockState state = event.getState();
             SlabConverter slabConverter = slabMap.get(state.getBlock());
             if (slabConverter == null || !slabConverter.isDoubleSlab(state)) {
