@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-@Config(modid = DWDCcore.MOD_ID, name = "kleeslabs")
+@Config(modid = DWDCcore.MOD_ID, name = "dwdc_core_kleeslabs")
 @Mod.EventBusSubscriber(modid = DWDCcore.MOD_ID)
 public class KleeSlabsConfig {
 

@@ -39,8 +39,6 @@ import java.util.Random;
 
 public class KleeSlabs {
 
-    public static final String MOD_ID = "kleeslabs";
-
     public static final Logger logger = LogManager.getLogger();
     private static final Random rand = new Random();
 
