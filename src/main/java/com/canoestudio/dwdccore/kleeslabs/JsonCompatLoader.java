@@ -1,7 +1,8 @@
-package net.blay09.mods.kleeslabs;
+package com.canoestudio.dwdccore.kleeslabs;
 
 import com.google.gson.*;
-import net.blay09.mods.kleeslabs.converter.SlabConverter;
+import com.canoestudio.dwdccore.DWDCcore;
+import com.canoestudio.dwdccore.kleeslabs.converter.SlabConverter;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -10,7 +11,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModContainer;
 import org.apache.commons.io.FilenameUtils;
 
@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Mod.EventBusSubscriber
 public class JsonCompatLoader {
 
     private static final Gson gson = new Gson();
@@ -31,8 +30,8 @@ public class JsonCompatLoader {
 
     public static boolean loadCompat() {
         nonFoodRecipes.clear();
-        ModContainer mod = Loader.instance().getIndexedModList().get(KleeSlabs.MOD_ID);
-        return findConfigFiles() && CraftingHelper.findFiles(mod, "assets/" + KleeSlabs.MOD_ID + "/compat", (root) -> true, (root, file) -> {
+        ModContainer mod = Loader.instance().getIndexedModList().get(DWDCcore.MOD_ID);
+        return findConfigFiles() && CraftingHelper.findFiles(mod, "assets/" + DWDCcore.MOD_ID + "/compat", (root) -> true, (root, file) -> {
             String relative = root.relativize(file).toString();
             if (!"json".equals(FilenameUtils.getExtension(file.toString())) || relative.startsWith("_")) {
                 return true;

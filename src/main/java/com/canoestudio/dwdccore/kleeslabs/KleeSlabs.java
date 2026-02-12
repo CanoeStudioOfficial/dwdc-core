@@ -1,7 +1,7 @@
-package net.blay09.mods.kleeslabs;
+package com.canoestudio.dwdccore.kleeslabs;
 
 import com.google.common.collect.Maps;
-import net.blay09.mods.kleeslabs.converter.SlabConverter;
+import com.canoestudio.dwdccore.kleeslabs.converter.SlabConverter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.state.IBlockState;
@@ -39,7 +39,6 @@ import java.io.File;
 import java.util.Map;
 import java.util.Random;
 
-@Mod(modid = KleeSlabs.MOD_ID, name = "KleeSlabs", acceptedMinecraftVersions = "[1.12]")
 public class KleeSlabs {
 
     public static final String MOD_ID = "kleeslabs";
@@ -55,13 +54,12 @@ public class KleeSlabs {
 
     private static final Map<Block, SlabConverter> slabMap = Maps.newHashMap();
 
-    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         configDir = event.getModConfigurationDirectory();
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        config = new Configuration(event.getSuggestedConfigurationFile());
+        config = new Configuration(new File(event.getModConfigurationDirectory(), "kleeslabs.cfg"));
         config.load();
 
         requireSneak = config.getBoolean("Require Sneaking", "general", false, "Set this to true to only break half a slab when the player is sneaking.");
@@ -70,7 +68,6 @@ public class KleeSlabs {
         // MinecraftForge.EVENT_BUS.register(new SlabDebugger());
     }
 
-    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         JsonCompatLoader.loadCompat();
 
