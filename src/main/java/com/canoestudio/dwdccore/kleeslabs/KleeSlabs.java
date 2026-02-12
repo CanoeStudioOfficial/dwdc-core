@@ -26,7 +26,6 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -41,7 +40,6 @@ import java.util.Random;
 
 public class KleeSlabs {
 
-    public static final String MOD_ID = "kleeslabs";
 
     public static final Logger logger = LogManager.getLogger();
     private static final Random rand = new Random();
