@@ -1,4 +1,4 @@
-package net.blay09.mods.kleeslabs.converter;
+package com.canoestudio.dwdccore.kleeslabs.converter;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;

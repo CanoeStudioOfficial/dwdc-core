@@ -101,7 +101,7 @@ public class JsonCompatLoader {
         String converterName = JsonUtils.getString(root, "converter");
         Class<?> converterClass;
         try {
-            converterClass = Class.forName("net.blay09.mods.kleeslabs.converter." + converterName);
+            converterClass = Class.forName("com.canoestudio.dwdccore.kleeslabs.converter." + converterName);
         } catch (ClassNotFoundException ignored) {
             try {
                 converterClass = Class.forName(converterName);
