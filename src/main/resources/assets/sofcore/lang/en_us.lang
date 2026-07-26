@@ -1,10 +1,4 @@
-sofcore.join_warning.snapshot=This modpack is in the snapshot stage. Content may be added or removed at any time, and crashes may happen at any time. Please report issues to the CanoeStudio development team!!
-sofcore.join_warning.pre=This modpack is a preview version, close to a formal prerelease, but it still has some issues. If you run into problems, report them directly to the CanoeStudio development team!
-
 sofcore.config.title=SOF Core
-sofcore.config.join_warning=Join Warning
-sofcore.config.join_warning.enabled=Enable Join Warning
-sofcore.config.join_warning.stage=Warning Version Stage
 sofcore.config.dynamic_trees=Dynamic Trees Compatibility
 sofcore.config.dynamic_trees.destroy_explosion_roots=Remove Rooty Dirt After Explosions
 sofcore.config.waystones_to_xaero=Waystones to Xaero

@@ -6,11 +6,6 @@ import net.minecraftforge.common.config.Config;
 @Config.LangKey("sofcore.config.title")
 public class SOFConfig {
 
-    @Config.Name("join_warning")
-    @Config.LangKey("sofcore.config.join_warning")
-    @Config.Comment("Controls the warning sent to players when they join a world/server.")
-    public static JoinWarning joinWarning = new JoinWarning();
-
     @Config.Name("dynamic_trees")
     @Config.LangKey("sofcore.config.dynamic_trees")
     @Config.Comment("Compatibility fixes for Dynamic Trees.")
@@ -25,19 +20,6 @@ public class SOFConfig {
     @Config.LangKey("sofcore.config.monster_currency_drops")
     @Config.Comment("Drops SOF Core currency items from monsters based on their max health.")
     public static MonsterCurrencyDrops monsterCurrencyDrops = new MonsterCurrencyDrops();
-
-    public static class JoinWarning {
-
-        @Config.Name("enabled")
-        @Config.LangKey("sofcore.config.join_warning.enabled")
-        @Config.Comment("Set to true to send the configured warning when a player joins.")
-        public boolean enabled = false;
-
-        @Config.Name("stage")
-        @Config.LangKey("sofcore.config.join_warning.stage")
-        @Config.Comment("Select which warning text should be sent.")
-        public PackStage stage = PackStage.SNAPSHOT;
-    }
 
     public static class DynamicTrees {
 
@@ -83,20 +65,5 @@ public class SOFConfig {
         @Config.RangeDouble(min = 1.0D)
         @Config.Comment("Currency amount is calculated as mob max health divided by this value.")
         public double mobDivisionValue = 1.0D;
-    }
-
-    public enum PackStage {
-        SNAPSHOT("sofcore.join_warning.snapshot"),
-        PRE("sofcore.join_warning.pre");
-
-        private final String langKey;
-
-        PackStage(String langKey) {
-            this.langKey = langKey;
-        }
-
-        public String getLangKey() {
-            return langKey;
-        }
     }
 }

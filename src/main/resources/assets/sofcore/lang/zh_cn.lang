@@ -1,10 +1,4 @@
-sofcore.join_warning.snapshot=本整合包处于快照版本阶段，内容随时可能新增或移除，也随时可能崩溃。出现问题请报告给 CanoeStudio 开发团队！
-sofcore.join_warning.pre=本整合包为预览版本，接近正式预发布，但仍然可能存在少量问题。出现问题请直接报告给 CanoeStudio 开发团队！
-
 sofcore.config.title=SOF Core
-sofcore.config.join_warning=进服提示
-sofcore.config.join_warning.enabled=启用进服提示
-sofcore.config.join_warning.stage=提示版本阶段
 sofcore.config.dynamic_trees=动态树兼容
 sofcore.config.dynamic_trees.destroy_explosion_roots=爆炸后移除根土
 sofcore.config.waystones_to_xaero=传送石碑到 Xaero 路径点

@@ -5,8 +5,6 @@ import com.google.common.collect.BiMap;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ScreenshotEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -41,17 +39,6 @@ import java.util.Set;
 public class SOFHook {
 
     private static final Map<Integer, Set<BlockPos>> PENDING_DYNAMIC_TREE_ROOT_DESTRUCTIONS = new HashMap<>();
-
-    @SubscribeEvent
-    public static void onPlayerLoggedIn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent event) {
-        if (!SOFConfig.joinWarning.enabled || event.player.world.isRemote) {
-            return;
-        }
-
-        TextComponentTranslation message = new TextComponentTranslation(SOFConfig.joinWarning.stage.getLangKey());
-        message.getStyle().setColor(TextFormatting.RED).setBold(true);
-        event.player.sendMessage(message);
-    }
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
