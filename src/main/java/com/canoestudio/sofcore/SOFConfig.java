@@ -27,6 +27,11 @@ public class SOFConfig {
         @Config.LangKey("sofcore.config.dynamic_trees.destroy_explosion_roots")
         @Config.Comment("When Dynamic Trees are destroyed by explosions, remove their rooty dirt after the explosion finishes.")
         public boolean destroyExplosionRoots = true;
+
+        @Config.Name("enable_aether_world_gen_patch")
+        @Config.LangKey("sofcore.config.dynamic_trees.enable_aether_world_gen_patch")
+        @Config.Comment("Registers a small Aether Legacy worldgen bridge for Dynamic Trees and forces the Aether dimension out of the Dynamic Trees blacklist.")
+        public boolean enableAetherWorldGenPatch = true;
     }
 
     public static class WaystonesToXaero {
