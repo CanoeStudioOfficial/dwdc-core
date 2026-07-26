@@ -41,6 +41,8 @@ dependencies {
 	implementation rfg.deobf("curse.maven:xaerolib-1417462:7579076")
     implementation rfg.deobf("curse.maven:xaeros-world-map-317780:8230988")
     implementation rfg.deobf("curse.maven:xaeros-minimap-263420:8231176")
+	implementation "curse.maven:baubles-227083:2518667"
+	implementation rfg.deobf("curse.maven:aether-255308:6316434")
     // Example - Deobfuscating dependencies:
     // rfg.deobf('curse.maven:had-enough-items-557549:4543375')
     // By wrapping a dependency descriptor in rfg.deobf() method call, the dependency is queued for deobfuscation
