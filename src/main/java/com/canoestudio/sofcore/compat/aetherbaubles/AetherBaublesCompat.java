@@ -7,10 +7,6 @@ import com.gildedgames.the_aether.api.player.IPlayerAether;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -81,15 +77,6 @@ public final class AetherBaublesCompat {
         if (event.phase == TickEvent.Phase.END) {
             installInventoryBridge(event.player);
         }
-    }
-
-    @SubscribeEvent
-    public static void hideAetherAccessoryButton(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (!isLoaded() || !(event.getGui() instanceof GuiContainer)) {
-            return;
-        }
-
-        event.getButtonList().removeIf(button -> button.id == 18067);
     }
 
     public static void installInventoryBridge(EntityPlayer player) {
